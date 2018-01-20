@@ -16,8 +16,8 @@ extension URL {
 		}
 
 		// Remove/replace "." and "..", make paths absolute:
-		let destComponents = self.standardized.pathComponents
-		let baseComponents = base.standardized.pathComponents
+		let destComponents = self.standardizedFileURL.pathComponents
+		let baseComponents = base.standardizedFileURL.pathComponents
 
 		// Find number of common path components:
 		var i = 0
