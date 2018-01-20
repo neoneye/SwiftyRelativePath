@@ -37,7 +37,7 @@ class SwiftyRelativePathTests: XCTestCase {
 	}
 
     static var allTests = [
-        ("testNormal", testNormal),
+		("testNormal", testNormal),
 		("testEmpty", testEmpty),
 		("testInvalid", testInvalid),
     ]
