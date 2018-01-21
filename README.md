@@ -19,9 +19,9 @@ Example of inputs and outputs:
     import SwiftyRelativePath
     
     let url0 = URL(fileURLWithPath: "/computer/qubit/17")
-    let url1 = URL(fileURLWithPath: "/computer")
+    let url1 = URL(fileURLWithPath: "/computer/lab")
     let path = url0.relativePath(from: url0)
-    // path is "qubit/17"
+    // path is "../qubit/17"
 
 
 # Credits
