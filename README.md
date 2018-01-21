@@ -28,3 +28,8 @@ Example of inputs and outputs:
 
 - [Martin R](https://chat.stackoverflow.com/users/1187415/martin-r). Thank you for [your answer](https://stackoverflow.com/a/48360631/78336) on stackoverflow.
 - [neoneye](https://github.com/neoneye)
+
+
+# License
+
+MIT License.
