@@ -1,8 +1,8 @@
 # SwiftyRelativePath
 
-This is a Swift equivalent of Ruby's [`Pathname.relative_path_from`](https://ruby-doc.org/stdlib-2.5.0/libdoc/pathname/rdoc/Pathname.html#method-i-relative_path_from).
+This is a Swift equivalent of Ruby's [`Pathname.relative_path_from()`](https://ruby-doc.org/stdlib-2.5.0/libdoc/pathname/rdoc/Pathname.html#method-i-relative_path_from)
+or Java's [`Path.relativize()`](https://docs.oracle.com/javase/7/docs/api/java/nio/file/Path.html#relativize).
 
-In objc there is already KSFileUtilities' [`ks_stringRelativeToURL`](https://github.com/karelia/KSFileUtilities#relative-strings) method, that is very close. I'm looking for a pure swift solution that can run on Linux.
 
 Example of inputs and outputs:
 
