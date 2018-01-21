@@ -7,7 +7,7 @@ extension URL {
 	///     let u1 = URL(fileURLWithPath: "/Users/Mozart/Music/Nachtmusik.mp3")!
 	///     let u2 = URL(fileURLWithPath: "/Users/Mozart/Documents")!
 	///     u1.relativePath(from: u2)  // "../Music/Nachtmusik.mp3"
-    ///
+	///
 	/// Case (in)sensitivity is not handled.
 	///
 	/// It is assumed that given URLs are absolute. Not relative.
