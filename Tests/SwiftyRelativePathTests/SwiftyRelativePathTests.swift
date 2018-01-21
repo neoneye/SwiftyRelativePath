@@ -35,19 +35,25 @@ class SwiftyRelativePathTests: XCTestCase {
 	}
 
 	func testEmpty() {
-		XCTAssertEqual(process("", ""), "")
+		XCTAssertEqual(process("/", "/"), "")
 		XCTAssertEqual(process("/./././root", "/root/../root"), "")
 		XCTAssertEqual(process("/./././root/./.", "/root"), "")
 		XCTAssertEqual(processUrl("file:///dir", "file:///dir"), "")
 	}
 
 	func testInvalid() {
-		XCTAssertNil(processUrl("file:///dir", "https://localhost/dir"))
-		XCTAssertNil(processUrl("https://localhost/dir", "file:///dir"))
-		XCTAssertNil(processUrl("https://localhost/dir", "https://localhost"))
-//		XCTAssertNil(process("/../../boom.txt", "/"))
-//		XCTAssertNil(process("/var/../../boom.txt", "/var/logs"))
-//		XCTAssertNil(process("/../../boom.txt", "/var/logs"))
+		do {
+			// Both urls must be file://
+			XCTAssertNil(processUrl("file:///dir", "https://localhost/dir"))
+			XCTAssertNil(processUrl("https://localhost/dir", "file:///dir"))
+			XCTAssertNil(processUrl("https://localhost/dir", "https://localhost"))
+		}
+		do {
+			// Compose a dangerous path that tries to break out of the rootdir
+			let u1 = URL(string: "../../../voynich-manuscript.rtf", relativeTo: URL(string: "file:///books")!)!
+			let u2 = URL(string: "file:///")!
+			XCTAssertNil(u1.relativePath(from: u2))
+		}
 	}
 
     static var allTests = [
