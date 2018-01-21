@@ -31,6 +31,7 @@ class SwiftyRelativePathTests: XCTestCase {
 		XCTAssertEqual(processUrl("file:///evil%2Fsecret.pdf", "file:///evil"), "secret.pdf")
 		XCTAssertEqual(processUrl("file:///asd/conspiracy/triton/climateforecast.pdf", "file:///asd%2Fconspiracy%2Ffairlight"), "../triton/climateforecast.pdf")
 		XCTAssertEqual(processUrl("file:///a/b/%2E%2E/c/haujobb", "file:///a/d"), "../c/haujobb")
+		XCTAssertEqual(processUrl("file://localhost/demos/kefrens.zip", "file:///demos"), "kefrens.zip")
 	}
 
 	func testEmpty() {
