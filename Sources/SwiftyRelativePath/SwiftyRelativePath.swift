@@ -2,13 +2,24 @@
 import Foundation
 
 extension URL {
-	/// "." and ".." in the given URLs are removed, and relative file URLs are made absolute (both using the standardized method of URL).
+	/// SwiftyRelativePath: Creates a path between two paths
 	///
+	///     let u1 = URL(fileURLWithPath: "/Users/Mozart/Music/Nachtmusik.mp3")!
+	///     let u2 = URL(fileURLWithPath: "/Users/Mozart/Documents")!
+	///     u1.relativePath(from: u2)  // "../Music/Nachtmusik.mp3"
+    ///
 	/// Case (in)sensitivity is not handled.
 	///
-	/// It is assumed that the base URL represents a directory.
+	/// It is assumed that given URLs are absolute. Not relative.
 	///
-	/// It is assumed that URL's are absolute. Not relative.
+	/// This method doesn't access the filesystem. It assumes no symlinks.
+	///
+	/// `"."` and `".."` in the given URLs are removed.
+	///
+	/// - Parameter base: The `base` url must be an absolute path to a directory.
+	///
+	/// - Returns: The returned path is relative to the `base` path.
+	///
 	public func relativePath(from base: URL) -> String? {
 		// Original code written by Martin R. https://stackoverflow.com/a/48360631/78336
 
