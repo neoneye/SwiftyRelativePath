@@ -10,23 +10,23 @@ extension URL {
 	public func relativePath(from base: URL) -> String? {
 		// Original code written by Martin R. https://stackoverflow.com/a/48360631/78336
 
-		// Ensure that both URLs represent files:
+		// Ensure that both URLs represent files
 		guard self.isFileURL && base.isFileURL else {
 			return nil
 		}
 
-		// Remove/replace "." and "..", make paths absolute:
+		// Remove/replace "." and "..", make paths absolute
 		let destComponents = self.standardizedFileURL.pathComponents
 		let baseComponents = base.standardizedFileURL.pathComponents
 
-		// Find number of common path components:
+		// Find number of common path components
 		var i = 0
 		while i < destComponents.count && i < baseComponents.count
 			&& destComponents[i] == baseComponents[i] {
 				i += 1
 		}
 
-		// Build relative path:
+		// Build relative path
 		var relComponents = Array(repeating: "..", count: baseComponents.count - i)
 		relComponents.append(contentsOf: destComponents[i...])
 		return relComponents.joined(separator: "/")
